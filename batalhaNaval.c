@@ -4,16 +4,16 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
+#define AGUA  0;
+#define NAVIO  3;
+
+
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
 
     int tabuleiro[10][10];
     char colunas[10] = {'A','B','C','D','E','F','G','H','I','J'};
 
-    // Corpo do navio, index vertical, index horizontal
+    // Corpo do navio, index vertical, index horizontal, diagonal
     int navio = 3;
     int vertical = 4;
     int horizontal = 1;
@@ -21,7 +21,7 @@ int main() {
     // Inicializa o tabuleiro com zeros
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            tabuleiro[i][j] = 0;
+            tabuleiro[i][j] = AGUA;
         }
     }
     
@@ -37,7 +37,7 @@ int main() {
 
     for (int i = horizontal; i < 2; i++) {
         for(int j = 0; j < 3; j++) {
-            tabuleiro[i][j] = 3;
+            tabuleiro[i][j] = NAVIO;
         };
         
     };
@@ -47,9 +47,28 @@ int main() {
     // Posiciona o navio na vertical
 
     for (int i = vertical; i < 7; i++) {
-        tabuleiro[i][4] = 3;
+        tabuleiro[i][4] = NAVIO;
     }
 
+    // Posiciona um navio na diagonal esquerda
+
+    for (int i = 7; i < 10; i++) {
+
+        tabuleiro[i][i] = NAVIO;
+        
+    }
+
+    // Posiciona um navio na diagonal para direita
+    int linha = 7;
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linha][i] = NAVIO
+        linha--;
+    }
+
+    // tabuleiro[7][0] = NAVIO;
+    // tabuleiro[6][1] = NAVIO;
+    // tabuleiro[5][2] = NAVIO;
+    
     // Imprime o tabuleiro com números nas linhas
 
     for (int i = 0; i < 10; i++) {
@@ -64,6 +83,7 @@ int main() {
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
     // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
