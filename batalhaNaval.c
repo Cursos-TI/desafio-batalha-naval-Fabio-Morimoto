@@ -6,6 +6,9 @@
 
 #define AGUA  0;
 #define NAVIO  3;
+#define PIRAMIDE 1;
+#define CRUZ 2;
+#define OCTAEDRO 4;
 
 
 int main() {
@@ -65,10 +68,32 @@ int main() {
         linha--;
     }
 
-    // tabuleiro[7][0] = NAVIO;
-    // tabuleiro[6][1] = NAVIO;
-    // tabuleiro[5][2] = NAVIO;
+    // Imprime a cruz
+
+    for (int i = 0; i < 4; i++) {
+        tabuleiro[i][4] = CRUZ;
+    }
+    for (int i = 0; i < 4; i++) {
+        for(int j = 2; j < 7; j++) {
+            tabuleiro[2][j] = CRUZ;
+        }
+    }
+
+    // Imprime o octaedro
+    // Não consegui aplicar um loop
+
+    tabuleiro[3][8] = OCTAEDRO;
+    tabuleiro[4][7] = tabuleiro[4][8] = tabuleiro[4][9] = OCTAEDRO;
+    tabuleiro[5][7] = tabuleiro[5][8] = tabuleiro[5][9] = OCTAEDRO;
+    tabuleiro[6][8] = OCTAEDRO;
+
+    // Imprime piramide
+    // Nao consegui implementar a logica dos loops
     
+    tabuleiro[7][2] = PIRAMIDE;
+    tabuleiro[8][1] = tabuleiro[8][2] = tabuleiro[8][3] = PIRAMIDE;
+    tabuleiro[9][0] = tabuleiro[9][1] = tabuleiro[9][2] = tabuleiro[9][3] = tabuleiro[9][4] = PIRAMIDE;
+   
     // Imprime o tabuleiro com números nas linhas
 
     for (int i = 0; i < 10; i++) {
